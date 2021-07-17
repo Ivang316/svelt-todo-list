@@ -1,6 +1,6 @@
 
 (function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
-var app = (function (exports) {
+var app = (function () {
     'use strict';
 
     function noop() { }
@@ -615,7 +615,7 @@ var app = (function (exports) {
     	return child_ctx;
     }
 
-    // (17:2) {#each todos as t (t.id)}
+    // (17:1) {#each todos as t (t.id)}
     function create_each_block(key_1, ctx) {
     	let div;
     	let t0_value = /*t*/ ctx[5].text + "";
@@ -636,8 +636,8 @@ var app = (function (exports) {
     			button = element("button");
     			button.textContent = "Delete";
     			t3 = space();
-    			add_location(button, file, 19, 6, 476);
-    			add_location(div, file, 17, 4, 449);
+    			add_location(button, file, 19, 3, 448);
+    			add_location(div, file, 17, 2, 427);
     			this.first = div;
     		},
     		m: function mount(target, anchor) {
@@ -677,7 +677,7 @@ var app = (function (exports) {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(17:2) {#each todos as t (t.id)}",
+    		source: "(17:1) {#each todos as t (t.id)}",
     		ctx
     	});
 
@@ -712,7 +712,7 @@ var app = (function (exports) {
     		c: function create() {
     			main = element("main");
     			h2 = element("h2");
-    			h2.textContent = "Svelte Todo App";
+    			h2.textContent = "Todo App";
     			t1 = space();
     			div = element("div");
     			input = element("input");
@@ -725,11 +725,11 @@ var app = (function (exports) {
     				each_blocks[i].c();
     			}
 
-    			add_location(h2, file, 11, 2, 293);
-    			add_location(input, file, 13, 4, 330);
-    			add_location(button, file, 14, 4, 368);
-    			add_location(div, file, 12, 2, 320);
-    			add_location(main, file, 10, 0, 284);
+    			add_location(h2, file, 11, 1, 287);
+    			add_location(input, file, 13, 2, 314);
+    			add_location(button, file, 14, 2, 350);
+    			add_location(div, file, 12, 1, 306);
+    			add_location(main, file, 10, 0, 279);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -806,7 +806,7 @@ var app = (function (exports) {
     		$$invalidate(1, newTodoText = "");
     	};
 
-    	const deleteTodo = id => $$invalidate(0, todos = [...todos.filter(t => t.id !== id)]);
+    	const deleteTodo = id => $$invalidate(0, todos = todos.filter(t => t.id !== id));
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -852,13 +852,11 @@ var app = (function (exports) {
     	}
     }
 
-    const app = new App({ target: document.body });
+    var main = new App({
+        target: document.body,
+    });
 
-    exports.app = app;
+    return main;
 
-    Object.defineProperty(exports, '__esModule', { value: true });
-
-    return exports;
-
-}({}));
+}());
 //# sourceMappingURL=bundle.js.map
