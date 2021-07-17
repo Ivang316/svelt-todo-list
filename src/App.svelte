@@ -4,7 +4,7 @@
 	let newTodoText = '';
 
 	const addTodo = () => {
-		todos.unshift({ id: uuid(), text: newTodoText });
+		todos = [{ id: uuid(), text: newTodoText}, ...todos];
 		newTodoText = '';
 	};
 	const deleteTodo = (id) => todos = todos.filter((t) => t.id !== id);
